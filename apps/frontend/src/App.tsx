@@ -1,13 +1,26 @@
-// import { useState } from 'react'
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home.tsx";
+import Tasks from "./pages/Tasks.tsx";
+import Calendar from "./pages/Calendar.tsx";
+import Charts from "./pages/Chart.tsx";
 
-function App() {
-  // const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div className="flex items-center justify-center bg-amber-600">
-      <h1>TaskFlow</h1>
-    </div>
+    <>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/charts" element={<Charts />} />
+          </Routes>
+        </main>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
